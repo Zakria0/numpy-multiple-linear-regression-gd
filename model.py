@@ -55,8 +55,11 @@ def compute_feature_stats(X):
     
     return mu, np.where(sigma == 0, 1.0, sigma)
 
-# Step 4 - standardize_features (not yet solved)
-# TODO: implement
+# Step 4 - standardize_features
+def standardize_features(X, mean, std):
+    n, d = X.shape
+
+    return (X - mean) / std
 
 # Step 5 - add_bias_column (not yet solved)
 # TODO: implement
