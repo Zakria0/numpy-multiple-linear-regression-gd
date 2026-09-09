@@ -122,8 +122,24 @@ def gd_step(X, y, weights, lr):
     """
     return weights - lr * mse_gradient(X, y, X @ weights)
 
-# Step 13 - epoch_train_val_losses (not yet solved)
-# TODO: implement
+# Step 13 - epoch_train_val_losses
+def epoch_train_val_losses(X_train, y_train, X_val, y_val, weights):
+    """Evaluate MSE on train and validation sets for the current weights.
+
+    Args:
+        X_train: Training design matrix of shape (n_tr, d_in).
+        y_train: Training targets of shape (n_tr,).
+        X_val: Validation design matrix of shape (n_va, d_in).
+        y_val: Validation targets of shape (n_va,).
+        weights: Weight vector of shape (d_in,).
+
+    Returns:
+        (train_loss, val_loss) as plain floats.
+    """
+    return (
+        mse_loss(y_train, X_train @ weights),
+        mse_loss(y_val, X_val @ weights)
+    )
 
 # Step 14 - update_early_stop_state (not yet solved)
 # TODO: implement
